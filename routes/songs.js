@@ -9,7 +9,7 @@ const router = Router();
 const { getSongs, getSong } = require('../controllers/songCtrl')
 
 router.get('/songs', getSongs)
-router.get('/song/:songId', getSong)
+router.get('/songs/:songId', getSong)
 
 
 module.exports = router;
