@@ -10,4 +10,19 @@ const { bookshelf } = require('../db/database')
 
 const Song = bookshelf.Model.extend({
   tableName: 'Song'
+}, {
+  getAllSongs() {
+    return this.forge()
+    .fetchAll()
+    .then(rows => rows)
+    .catch(err => err)
+  },
+  getOneSong(songId) {
+    return this.forge({songId})
+    .fetch()
+    .then(row => row)
+    .catch(err => err)
+  }
 })
+
+module.exports = bookshelf.model('Song', Song);
