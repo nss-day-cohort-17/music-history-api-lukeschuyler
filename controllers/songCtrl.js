@@ -24,3 +24,24 @@ module.exports.getSong = (req, res, next) => {
     next(err)
   })
 }
+
+module.exports.addNewSong = (req, res, next) => {
+  console.log(req.body)
+  Song.addSong(req.body)
+  .then((data) => {
+    res.status(200).json(data)
+  })
+  .catch(err => {
+    next(err)
+  })
+}
+
+module.exports.deleteSong = (req, res, next) => {
+  Song.deleteSong(req.params.songId)
+  .then(res => {
+    res.status(200).json(res)
+  })
+  .catch(err => {
+    next(err)
+  })
+}

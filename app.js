@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 let app = express();
 const routes = require('./routes/');
 
+app.use(bodyParser.json())
+
 // <Include the router index file>
 // <Setup your routes middleware>
 // <catch any undefined routes with a 404 middleware>

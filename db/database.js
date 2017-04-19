@@ -5,6 +5,8 @@
 // that the devlopment configuration sets that environment to use sqlite instead of postgres.
 
 // No need to make migrations, since the db and tables already exist
+
+
 const environment = process.env.NODE_ENV || 'development';
 const config = require('../knexfile.js')[environment];
 const knex = require('knex')(config);

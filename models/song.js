@@ -7,9 +7,11 @@
 // open up the musichistory db and inspect the tables. Add the appropriate table name for 
 // interfacing with the songs collection
 const { bookshelf } = require('../db/database')
+require('./album')
 
 const Song = bookshelf.Model.extend({
-  tableName: 'Song'
+  tableName: 'Song',
+  artist: function() { return this.belongsTo('Album') }
 }, {
   getAllSongs() {
     return this.forge()
@@ -22,6 +24,16 @@ const Song = bookshelf.Model.extend({
     .fetch()
     .then(row => row)
     .catch(err => err)
+  },
+  addSong(song) {
+    return this.forge(song)
+    .save()
+    .then(id => id)
+    .catch(err => err)
+  },
+  deleteSong(SongId) {
+    return Song.forge().where({ SongId })
+    .destroy()
   }
 })
 

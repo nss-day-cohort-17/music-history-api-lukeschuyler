@@ -6,7 +6,7 @@ module.exports = {
     connection: {
       filename: './musichistory.db'
     },
-    useNullAsDefault: true
+    useNullAsDefault: false
   },
 
   staging: {
