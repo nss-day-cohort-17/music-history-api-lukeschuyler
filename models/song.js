@@ -6,3 +6,8 @@
 // When adding the 'table' property use your old friend DB Browser for SQLite to 
 // open up the musichistory db and inspect the tables. Add the appropriate table name for 
 // interfacing with the songs collection
+const { bookshelf } = require('../db/database')
+
+const Song = bookshelf.Model.extend({
+  tableName: 'Song'
+})
