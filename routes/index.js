@@ -18,5 +18,6 @@ router.get('/', function(req, res) {
 });
 
 router.use(require('./songs'))
+router.use(require('./albums'))
 
 module.exports = router;

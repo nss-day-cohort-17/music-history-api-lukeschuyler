@@ -16,7 +16,7 @@ module.exports.getSongs = (req, res, next) => {
 }
 
 module.exports.getSong = (req, res, next) => {
-  Song.getOneSong(req.params.id)
+  Song.getOneSong(req.params.songId)
   .then(song => {
     res.status(200).json(song)
   })
